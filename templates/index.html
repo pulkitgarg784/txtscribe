@@ -26,7 +26,7 @@
             </p>
             {% if filename %}
             <div>
-                <img src="{{ url_for('display_image', filename=filename) }}">
+                <img src="{{ url_for('display_image', filename=filename) }}" style="width: 40vw;">
             </div>
             {% endif %}
             <form method="post" action="/" enctype="multipart/form-data">
@@ -39,10 +39,14 @@
                     <input type="submit" value="Submit" class="btn btn-info">
                 </p>
             </form>
-            <form action="/forward/" method="post">
-                <button name="forwardBtn" type="submit">Forward</button>
+            <form action="/Process/" method="post">
+                <button name="processBtn" type="submit">Process Image</button>
             </form>
-            {{ forward_message }}
+            {{ scanned_text }}
+            <br><br>
+            {{ processed_text }}
+            <br><br>
+            {{ summary_text }}
         </div>
     </div>
 </body>
