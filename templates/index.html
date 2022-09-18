@@ -1,18 +1,20 @@
 <html>
 
 <head>
-    <title>Python Flask Upload and display image</title>
+    <title>TxtScribe</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 
 <body>
     <p>
-    <h1 align="center">Python Flask Upload and display image</h1>
+    <h1 align="center">TxtScribe</h1>
     </p>
-    <div class="container">
+    <div class="container" style="padding: 100px;">
         <div class="row">
-            <h2>Select a file to upload</h2>
+            <h2>Select an image to upload</h2>
+            <h4>TxtScribe can automatically convert any picture or even handwritten notes to text files. It even fixes
+                any spelling or grammatical mistakes you might have.</h4>
             <p>
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -24,11 +26,6 @@
             {% endif %}
             {% endwith %}
             </p>
-            {% if filename %}
-            <div>
-                <img src="{{ url_for('display_image', filename=filename) }}" style="width: 40vw;">
-            </div>
-            {% endif %}
             <form method="post" action="/" enctype="multipart/form-data">
                 <dl>
                     <p>
@@ -36,15 +33,24 @@
                     </p>
                 </dl>
                 <p>
-                    <input type="submit" value="Submit" class="btn btn-info">
+                    <input type="submit" value="Submit" class="btn btn-primary">
                 </p>
             </form>
-            <form action="/Process/" method="post">
-                <button name="processBtn" type="submit">Process Image</button>
-            </form>
-            <form action="/RegenSummary/" method="post">
-                <button name="regenBtn" type="submit">Regenerate Summary</button>
-            </form>
+            {% if filename %}
+            <div>
+                <img src="{{ url_for('display_image', filename=filename) }}" style="width: 40vw;">
+            </div>
+            {% endif %}
+            <br><br>
+            <div>
+                <form action="/Process/" method="post">
+                    <button name="processBtn" type="submit" class="btn btn-primary">Process Image</button>
+                </form>
+
+                <form action="/RegenSummary/" method="post">
+                    <button name="regenBtn" type="submit" class="btn btn-primary">Regenerate Summary</button>
+                </form>
+            </div>
             The Processed Text is: {{ processed_text }}
             <br><br>
             Summary is: {{ summary_text }}

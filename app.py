@@ -4,6 +4,7 @@ import os
 from werkzeug.utils import secure_filename
 import cohere
 co = cohere.Client('dG9FO5NCPecnNjWtiSGAlXmQf3qbkVkBGX2krkBg')
+
 fixed_str = ""
 
 app = Flask(__name__)
