@@ -1,6 +1,6 @@
 import cohere
 co = cohere.Client('dG9FO5NCPecnNjWtiSGAlXmQf3qbkVkBGX2krkBg')
-
+print("Hello")
 def detect_document(path):
     words = []
     from google.cloud import vision
@@ -53,7 +53,7 @@ response2 = co.generate(
   model='large', 
   prompt=summary_training_data, 
   max_tokens=50, 
-  temperature=0.4, 
+  temperature=0.3, 
   k=0, 
   p=1, 
   frequency_penalty=0, 
