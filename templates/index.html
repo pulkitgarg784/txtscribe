@@ -42,11 +42,12 @@
             <form action="/Process/" method="post">
                 <button name="processBtn" type="submit">Process Image</button>
             </form>
-            {{ scanned_text }}
+            <form action="/RegenSummary/" method="post">
+                <button name="regenBtn" type="submit">Regenerate Summary</button>
+            </form>
+            The Processed Text is: {{ processed_text }}
             <br><br>
-            {{ processed_text }}
-            <br><br>
-            {{ summary_text }}
+            Summary is: {{ summary_text }}
         </div>
     </div>
 </body>
