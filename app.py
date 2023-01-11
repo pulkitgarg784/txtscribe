@@ -3,7 +3,7 @@ import urllib.request
 import os
 from werkzeug.utils import secure_filename
 import cohere
-co = cohere.Client('dG9FO5NCPecnNjWtiSGAlXmQf3qbkVkBGX2krkBg')
+co = cohere.Client('key') # replace key with id
 
 fixed_str = ""
 
@@ -56,7 +56,7 @@ def detect_document(path):
     words = []
     from google.cloud import vision
     import io
-    client = vision.ImageAnnotatorClient.from_service_account_json("HackTheNorth-4bd17a719544.json")
+    client = vision.ImageAnnotatorClient.from_service_account_json("SECRET") # replace with env
 
     with io.open(path, 'rb') as image_file:
         content = image_file.read()
